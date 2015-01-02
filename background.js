@@ -1,3 +1,4 @@
+var counter = 0; // Track how many times process() has run.
 var startProcess = setInterval(process,2000);
 
 function revealDownvotes() {
@@ -47,6 +48,8 @@ function revealDownvotes() {
 function process() {
   var num = revealDownvotes();
   stopCheck(num);
+  if(++counter == 10)
+    clearInterval(startProcess); //Allow script to run a maximum of 10 times.
 }
 
 // Checks if all downvotes are properly displayed. If true, stop running the script.
@@ -57,6 +60,6 @@ function stopCheck(expected) {
     if(parseInt(list[i].innerHTML) > 0)
       count++;
   }
-  if (count === expected)
+  if (expected > 0 &&count === expected)
     clearInterval(startProcess);
 }
