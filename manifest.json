@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "author": "Andy Tu",
+  "name": "Disqus-Downvote-Display",
+  "short_name": "Disqus-Downvote-Display",
+  "description": "See the amount of downvotes that a comment on the Disqus platform has.",
+
+  "version": "0.0.1",
+
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": [
+        "*://disqus.com/*", "*://*.disquscdn.com/*","*://*.disqus.com/*"
+      ],
+      "js": [
+        "background.js"
+      ]
+    }
+   ]
+}
