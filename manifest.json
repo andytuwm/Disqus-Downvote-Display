@@ -7,15 +7,9 @@
 
   "version": "0.0.1",
 
-  "content_scripts": [
-    {
+  "content_scripts": [{
       "all_frames": true,
-      "matches": [
-        "*://disqus.com/*", "*://*.disquscdn.com/*","*://*.disqus.com/*"
-      ],
-      "js": [
-        "background.js"
-      ]
-    }
-   ]
+      "matches": ["*://disqus.com/*", "*://*.disquscdn.com/*","*://*.disqus.com/*"],
+      "js": ["background.js"]
+    }]
 }
