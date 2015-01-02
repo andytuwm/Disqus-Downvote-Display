@@ -1,7 +1,8 @@
-var counter = 0; // Track how many times function has ran.
-var startProcess = setInterval(revealDownvotes,3000);
+var startProcess = setInterval(process,2000);
 
 function revealDownvotes() {
+
+  var count = 0; // Variable for tracking how many downvoted comments there are.
 
   // Get all elements starting with this class name.
   var downvotes = document.getElementsByClassName("vote-down");
@@ -35,9 +36,27 @@ function revealDownvotes() {
     // If no downvotes, don't display the 0.
     if (downvoteCount.innerHTML === "0")
       downvoteCount.style.display = "none";
+    else
+      count++; // Count how many elements have actual downvotes.
   }
+  return count;
+}
 
-  // After function has run 5 times, stop running to reduce load.
-  if (++counter === 5)
+// Main function consists of running the downvote display and checking whether
+// to stop running the script.
+function process() {
+  var num = revealDownvotes();
+  stopCheck(num);
+}
+
+// Checks if all downvotes are properly displayed. If true, stop running the script.
+function stopCheck(expected) {
+  var list = document.getElementsByClassName("downvotes");
+  var count = 0;
+  for (var i = 0; i < list.length; i++ ) {
+    if(parseInt(list[i].innerHTML) > 0)
+      count++;
+  }
+  if (count === expected)
     clearInterval(startProcess);
 }

@@ -5,7 +5,7 @@
   "short_name": "Disqus-Downvote-Display",
   "description": "See the amount of downvotes that a comment on the Disqus platform has.",
 
-  "version": "0.0.1",
+  "version": "1.0",
 
   "content_scripts": [{
       "all_frames": true,
